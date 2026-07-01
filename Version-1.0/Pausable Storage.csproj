@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>pausablestorage</AssemblyName>
+    <RootNamespace>Calloatti.PausableStorage</RootNamespace>
+  </PropertyGroup>
+
+  <Import Project="CommonModSettings.props" />
+
+</Project>

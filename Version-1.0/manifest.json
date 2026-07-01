@@ -1,0 +1,15 @@
+{
+  "Name": "Pausable Storage",
+  "Version": "1.0.0",
+  "Id": "Calloatti.PausableStorage",
+  "MinimumGameVersion": "1.0.0.0",
+  "Description": "Allows storage buildings like Stockpiles, Warehouses and Tanks to be paused and automated.",
+  "RequiredMods": [
+    {
+      "Id": "Harmony",
+      "MinVersion": "2.4.1"
+    }
+  ],
+  "OptionalMods": [
+  ]
+}
