@@ -1,4 +1,4 @@
-{
+﻿{
   "Name": "Pausable Storage",
   "Version": "1.0.0",
   "Id": "Calloatti.PausableStorage",
@@ -10,6 +10,5 @@
       "MinVersion": "2.4.1"
     }
   ],
-  "OptionalMods": [
-  ]
+  "OptionalMods": []
 }
