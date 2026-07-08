@@ -25,13 +25,17 @@ namespace Calloatti.PausableStorage
       // Inject our wrapper
       inventoryFilter = inventory =>
       {
-        // 1. Check if manually paused by the player
-        var pausable = inventory.GetComponent<PausableBuilding>();
-        if (pausable != null && pausable.Paused) return false;
+        // ONLY apply custom blocking logic if it has our specific storage component
+        if (inventory.GetComponent<PausableStorageComponent>() != null)
+        {
+          // 1. Check if manually paused by the player
+          var pausable = inventory.GetComponent<PausableBuilding>();
+          if (pausable != null && pausable.Paused) return false;
 
-        // 2. Check if blocked by automation/logic networks
-        var blockable = inventory.GetComponent<BlockableObject>();
-        if (blockable != null && !blockable.IsUnblocked) return false;
+          // 2. Check if blocked by automation/logic networks
+          var blockable = inventory.GetComponent<BlockableObject>();
+          if (blockable != null && !blockable.IsUnblocked) return false;
+        }
 
         return originalFilter == null || originalFilter(inventory); // Otherwise, evaluate vanilla filter
       };
@@ -55,13 +59,17 @@ namespace Calloatti.PausableStorage
 
       foreach (Inventory item in readOnlyHashSet)
       {
-        // 1. Manual pause check
-        var pausable = item.GetComponent<PausableBuilding>();
-        if (pausable != null && pausable.Paused) continue;
+        // ONLY apply custom blocking logic if it has our specific storage component
+        if (item.GetComponent<PausableStorageComponent>() != null)
+        {
+          // 1. Manual pause check
+          var pausable = item.GetComponent<PausableBuilding>();
+          if (pausable != null && pausable.Paused) continue;
 
-        // 2. Automation block check
-        var blockable = item.GetComponent<BlockableObject>();
-        if (blockable != null && !blockable.IsUnblocked) continue;
+          // 2. Automation block check
+          var blockable = item.GetComponent<BlockableObject>();
+          if (blockable != null && !blockable.IsUnblocked) continue;
+        }
 
         Accessible enabledComponent = item.GetEnabledComponent<Accessible>();
         if (enabledComponent.IsReachableByRoad(accessibleReachableFromInventory) && enabledComponent.FindRoadPath(start, out var distance) && distance < num)
