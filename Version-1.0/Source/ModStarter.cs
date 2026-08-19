@@ -9,8 +9,7 @@ namespace Calloatti.PausableStorage
     public void StartMod(IModEnvironment modEnvironment)
     {
       // Re-enable Harmony to inject our custom input/output logic rules
-      var harmony = new Harmony("calloatti.pausablestorage");
-      harmony.PatchAll();
+new Harmony("Calloatti.PausableStorage").PatchAll();
     }
   }
 }

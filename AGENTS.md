@@ -21,3 +21,8 @@ Adds pause functionality to storage buildings. Allows players to pause stockpile
 | `ModComponent.cs` | Core pause component |
 | `ModPatches.cs` | Harmony patches for storage pausing |
 | `ModPatchesNeeds.cs` | Harmony patches for needs-related pausing |
+
+## Hard Rule
+DO NOT EVER TOUCH THE DEPLOY FOLDER.
+
+BUILD DOES EVERYTHING, NEVER EVER MESS WITH THE DEPLOY PROCESS.
